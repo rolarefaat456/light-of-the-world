@@ -8,6 +8,7 @@ environment:
   sdk: ^3.11.4
 
 dependencies:
+  animated_toggle_switch: ^0.8.7
   bloc: ^9.2.1
   cupertino_icons: ^1.0.8
   equatable: ^2.0.8

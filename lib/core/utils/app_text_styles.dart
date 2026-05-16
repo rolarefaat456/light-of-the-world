@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../features/settings/presentation/manager/font size/font_size_cubit.dart';
 import '../constants/strings.dart';
 import 'app_responsive.dart';

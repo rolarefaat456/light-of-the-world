@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ligthoftheworld/core/utils/app_text_styles.dart';
 import 'package:table_calendar/table_calendar.dart';
+import '../../../../settings/presentation/manager/font size/font_size_cubit.dart';
 import '../../manager/calendar_cubit.dart';
 import 'lenged_item.dart';
 
@@ -10,6 +11,9 @@ class CalendarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final scale = context.watch<FontSizeCubit>().state is FontSizeChanged
+        ? (context.watch<FontSizeCubit>().state as FontSizeChanged).scale
+        : 1.0;
     return BlocBuilder<CalendarCubit, CalendarState>(
       builder: (context, state) {
         return switch (state) {
@@ -17,7 +21,7 @@ class CalendarWidget extends StatelessWidget {
           CalendarError(:final message) => Center(
             child: Text(
               message,
-              style: AppTextStyles.style16w500(context: context, userScale: 1),
+              style: AppTextStyles.style16w500(context: context, userScale: scale),
             ),
           ),
           CalendarLoaded(:final selectedDay, :final focusedDay) => Container(
@@ -64,7 +68,7 @@ class CalendarWidget extends StatelessWidget {
                     titleTextStyle:
                         AppTextStyles.style18w500(
                           context: context,
-                          userScale: 1,
+                          userScale: scale,
                         ).copyWith(
                           color: Theme.of(context).textTheme.bodyLarge!.color,
                         ),
@@ -84,7 +88,7 @@ class CalendarWidget extends StatelessWidget {
                     weekdayStyle:
                         AppTextStyles.style12w400(
                           context: context,
-                          userScale: 1,
+                          userScale: scale,
                         ).copyWith(
                           color: Theme.of(
                             context,
@@ -93,7 +97,7 @@ class CalendarWidget extends StatelessWidget {
                     weekendStyle:
                         AppTextStyles.style12w400(
                           context: context,
-                          userScale: 1,
+                          userScale: scale,
                         ).copyWith(
                           color: Theme.of(
                             context,
@@ -105,7 +109,7 @@ class CalendarWidget extends StatelessWidget {
                     defaultTextStyle:
                         AppTextStyles.style16w500(
                           context: context,
-                          userScale: 1,
+                          userScale: scale,
                         ).copyWith(
                           color: Theme.of(
                             context,
@@ -114,7 +118,7 @@ class CalendarWidget extends StatelessWidget {
                     weekendTextStyle:
                         AppTextStyles.style16w400(
                           context: context,
-                          userScale: 1,
+                          userScale: scale,
                         ).copyWith(
                           color: Theme.of(
                             context,
@@ -133,7 +137,7 @@ class CalendarWidget extends StatelessWidget {
                     selectedTextStyle:
                         AppTextStyles.style16w400(
                           context: context,
-                          userScale: 1,
+                          userScale: scale,
                         ).copyWith(
                           color: Theme.of(
                             context,

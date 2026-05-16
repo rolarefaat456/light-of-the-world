@@ -27,7 +27,7 @@ static final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: SettingView.routeName,
-      builder: (context, state) => const SettingView(),
+      builder: (context, state) => SettingView(),
     ),
 
   ]
