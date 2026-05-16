@@ -8,7 +8,8 @@ class PercentageOfProgress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ContainerGradient(child: Row(
+    return ContainerGradient(
+      child: Row(
         children: [
           Expanded(
             child: Column(
@@ -57,7 +58,7 @@ class PercentageOfProgress extends StatelessWidget {
               ],
             ),
           ),
-    
+
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -115,6 +116,7 @@ class PercentageOfProgress extends StatelessWidget {
             ),
           ),
         ],
-      ),);
+      ),
+    );
   }
 }

@@ -24,30 +24,32 @@ class StreakView extends StatelessWidget {
               create: (context) => CalendarCubit(),
               child: CalendarWidget(),
             ),
-            // HeatMap(
-
-            //   datasets: {
-            //     DateTime(2025, 5, 1): 3,
-            //     DateTime(2025, 5, 2): 7,
-            //     DateTime(2025, 5, 3): 1,
-            //   },
-
-            //   colorMode: ColorMode.opacity,
-
-            //   defaultColor: Colors.grey.shade800,
-
-            //   textColor: Colors.white,
-
-            //   showColorTip: false,
-
-            //   size: 10,
-            //   colorsets: {
-            //     1: Colors.green[100]!,
-            //     3: Colors.green[300]!,
-            //     5: Colors.green[500]!,
-            //     7: Colors.green[700]!,
-            //     10: Colors.green[900]!,
-            //   },
+            // SingleChildScrollView(
+            //   scrollDirection: Axis.horizontal,
+            //   child: HeatMap(
+            //     datasets: {
+            //       DateTime(2025, 5, 1): 3,
+            //       DateTime(2025, 5, 2): 7,
+            //       DateTime(2025, 5, 3): 1,
+            //     },
+              
+            //     colorMode: ColorMode.opacity,
+              
+            //     defaultColor: Colors.grey.shade800,
+              
+            //     textColor: Colors.white,
+              
+            //     showColorTip: false,
+              
+            //     size: 10,
+            //     colorsets: {
+            //       1: Colors.green[100]!,
+            //       3: Colors.green[300]!,
+            //       5: Colors.green[500]!,
+            //       7: Colors.green[700]!,
+            //       10: Colors.green[900]!,
+            //     },
+            //   ),
             // ),
             LastAchievement(), // lma el user yro7 2das ytdaf hyna aw wsl ly fyn fy kra2t el bible
           ],

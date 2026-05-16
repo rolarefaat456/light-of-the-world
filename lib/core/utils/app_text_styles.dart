@@ -117,4 +117,14 @@ class AppTextStyles {
       fontFamily: Strings.almarai,
     );
   }
+  static TextStyle style12w400({
+    required BuildContext context,
+    required double userScale,
+  }) {
+    return TextStyle(
+      fontSize: responsiveFont(context, 12 * userScale),
+      fontWeight: FontWeight.w400,
+      fontFamily: Strings.almarai,
+    );
+  }
 }
