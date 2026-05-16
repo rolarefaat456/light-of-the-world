@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_heatmap_calendar/flutter_heatmap_calendar.dart';
+// import 'package:flutter_heatmap_calendar/flutter_heatmap_calendar.dart';
 import 'package:ligthoftheworld/features/streak/presentation/view/widgets/percentage_of_progress.dart';
-
 import '../manager/calendar_cubit.dart';
 import 'widgets/calender_widget.dart';
 import 'widgets/last_achievement.dart';

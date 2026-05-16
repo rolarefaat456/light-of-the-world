@@ -14,14 +14,12 @@ class CalendarWidget extends StatelessWidget {
       builder: (context, state) {
         return switch (state) {
           CalendarLoading() => const Center(child: CircularProgressIndicator()),
-
           CalendarError(:final message) => Center(
             child: Text(
               message,
               style: AppTextStyles.style16w500(context: context, userScale: 1),
             ),
           ),
-
           CalendarLoaded(:final selectedDay, :final focusedDay) => Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
@@ -41,7 +39,6 @@ class CalendarWidget extends StatelessWidget {
                 ),
               ],
             ),
-
             child: Column(
               spacing: 16,
               children: [
