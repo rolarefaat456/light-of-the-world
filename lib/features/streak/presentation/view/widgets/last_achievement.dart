@@ -18,7 +18,6 @@ class LastAchievement extends StatelessWidget {
             title: "آخر الإنجازات",
             textStyle: AppTextStyles.style18w500(
               context: context,
-              userScale: 1,
             ).copyWith(color: Theme.of(context).textTheme.bodyLarge?.color),
           ),
 
@@ -44,8 +43,7 @@ class LastAchievement extends StatelessWidget {
                       textStyle:
                           AppTextStyles.style16w400(
                             context: context,
-                            userScale: 1,
-                          ).copyWith(
+                                        ).copyWith(
                             color: Theme.of(context).textTheme.bodyLarge?.color,
                           ),
                     ),
@@ -56,8 +54,7 @@ class LastAchievement extends StatelessWidget {
                     textStyle:
                         AppTextStyles.style14w400(
                           context: context,
-                          userScale: 1,
-                        ).copyWith(
+                                    ).copyWith(
                           color: Theme.of(context).textTheme.bodyLarge?.color,
                         ),
                   ),

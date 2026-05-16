@@ -1,11 +1,23 @@
 import 'package:bloc/bloc.dart';
+
+import '../../../../../core/service/hive_font_size.dart';
+import '../../../data/font_size_level.dart';
 part 'font_size_state.dart';
 
-class FontSizeCubit extends Cubit<FontSizeState> {
-  FontSizeCubit() : super(FontSizeChanged(1.0));
+class FontSizeCubit extends Cubit<FontSizeLevel> {
+  FontSizeCubit() : super(FontSizeLevel.medium) {
+    loadFromHive();
+  }
 
-  void changeSize(double value) {
-    final scale = value.clamp(0.8, 1.5);
-    emit(FontSizeChanged(scale));
+  Future<void> loadFromHive() async {
+    final level = await HiveFontSize.getLevel();
+    emit(level);
+  }
+
+  Future<void> setFromSlider(double value) async {
+    final level = valueToLevel(value);
+
+    await HiveFontSize.setLevel(level);
+    emit(level);
   }
 }

@@ -4,7 +4,7 @@ import 'package:ligthoftheworld/features/agbya/presentation/view/agbya_view.dart
 import 'package:ligthoftheworld/features/bible/presentation/view/bible_view.dart';
 import 'package:ligthoftheworld/features/katamars/presentation/view/katamars_view.dart';
 import 'package:ligthoftheworld/features/kholagy/presentation/view/kholagy_view.dart';
-import 'package:ligthoftheworld/features/library/presentation/manager/library_view.dart';
+import 'package:ligthoftheworld/features/library/presentation/view/library_view.dart';
 import 'package:ligthoftheworld/features/streak/presentation/view/streak_view.dart';
 import '../../home/presentation/view/home_view.dart';
 

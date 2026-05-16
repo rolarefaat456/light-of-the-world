@@ -1,12 +1,20 @@
-import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-part 'darkmode_state.dart';
+import '../../../../../core/service/hive_mode.dart';
+import '../../../data/app_mode_model.dart';
 
-class DarkmodeCubit extends Cubit<DarkmodeState> {
-  DarkmodeCubit() : super(DarkModeToggle(false));
+class DarkmodeCubit extends Cubit<AppMode> {
+  DarkmodeCubit() : super(AppMode.system) {
+    load();
+  }
 
-  void toggleDarkMode(bool isDarkMode) {
-    emit(DarkModeToggle(isDarkMode));
+  Future<void> load() async {
+    final mode = HiveMode.getMode();
+    emit(mode);
+  }
+
+  Future<void> setMode(AppMode mode) async {
+    await HiveMode.setMode(mode);
+    emit(mode);
   }
 }

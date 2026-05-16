@@ -45,7 +45,6 @@ class PercentageOfProgress extends StatelessWidget {
                         textStyle:
                             AppTextStyles.style18w500(
                               context: context,
-                              userScale: 1,
                             ).copyWith(
                               color: Theme.of(
                                 context,
@@ -73,7 +72,7 @@ class PercentageOfProgress extends StatelessWidget {
                       textStyle:
                           AppTextStyles.style18w500(
                             context: context,
-                            userScale: 1,
+
                           ).copyWith(
                             color: Theme.of(context).textTheme.bodyLarge?.color,
                           ),
@@ -85,7 +84,7 @@ class PercentageOfProgress extends StatelessWidget {
                       textStyle:
                           AppTextStyles.style18w500(
                             context: context,
-                            userScale: 1,
+
                           ).copyWith(
                             color: Theme.of(context).textTheme.bodyLarge?.color,
                           ),
@@ -106,8 +105,7 @@ class PercentageOfProgress extends StatelessWidget {
                     child: CustomText(
                       title: 'خلصت 34% من خطة العهد الجديد',
                       textStyle: AppTextStyles.style18w500(
-                        context: context,
-                        userScale: 1,
+                        context: context
                       ).copyWith(color: Theme.of(context).colorScheme.primary),
                     ),
                   ),

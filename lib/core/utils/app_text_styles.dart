@@ -1,28 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../features/settings/data/font_size_level.dart';
 import '../../features/settings/presentation/manager/font size/font_size_cubit.dart';
 import '../constants/strings.dart';
 import 'app_responsive.dart';
 
 double responsiveFont(BuildContext context, double fontSize) {
-  final state = context.watch<FontSizeCubit>().state;
+  final level = context.watch<FontSizeCubit>().state;
 
-  final userScale = state is FontSizeChanged ? state.scale : 1.0;
+  final userScale = fontScaleFromLevel(level);
+  final screenScale = AppResponsive.getScaleFactor(context);
 
-  double screenScale = AppResponsive.getScaleFactor(context);
-
-  double result = fontSize * screenScale * userScale;
-
-  return result.clamp(fontSize * 0.7, fontSize * 1.4);
+  return (fontSize * userScale * screenScale).clamp(
+    fontSize * 0.6,
+    fontSize * 1.4,
+  );
 }
 
 class AppTextStyles {
-  static TextStyle style32w800({
-    required BuildContext context,
-    required double userScale,
-  }) {
+  static TextStyle style32w800({required BuildContext context}) {
     return TextStyle(
-      fontSize: responsiveFont(context, 32 * userScale),
+      fontSize: responsiveFont(context, 32),
       fontWeight: FontWeight.w800,
       fontFamily: Strings.almarai,
       color: Theme.of(context).textTheme.bodyMedium?.color,
@@ -30,100 +28,84 @@ class AppTextStyles {
     );
   }
 
-  static TextStyle style24w700({
-    required BuildContext context,
-    required double userScale,
-  }) {
+  static TextStyle style24w700({required BuildContext context}) {
     return TextStyle(
-      fontSize: responsiveFont(context, 24 * userScale),
+      fontSize: responsiveFont(context, 24),
       fontWeight: FontWeight.w700,
       fontFamily: Strings.almarai,
+      color: Theme.of(context).textTheme.bodyMedium?.color,
     );
   }
 
-  static TextStyle style18w700({
-    required BuildContext context,
-    required double userScale,
-  }) {
+  static TextStyle style18w700({required BuildContext context}) {
     return TextStyle(
-      fontSize: responsiveFont(context, 18 * userScale),
+      fontSize: responsiveFont(context, 18),
       fontWeight: FontWeight.w700,
       fontFamily: Strings.almarai,
       color: Theme.of(context).textTheme.bodyLarge?.color,
     );
   }
 
-  static TextStyle style18w500({
-    required BuildContext context,
-    required double userScale,
-  }) {
+  static TextStyle style18w500({required BuildContext context}) {
     return TextStyle(
-      fontSize: responsiveFont(context, 18 * userScale),
+      fontSize: responsiveFont(context, 18),
       fontWeight: FontWeight.w500,
       fontFamily: Strings.almarai,
+      color: Theme.of(context).textTheme.bodyMedium?.color,
     );
   }
 
-  static TextStyle style16w500({
-    required BuildContext context,
-    required double userScale,
-  }) {
+  static TextStyle style16w500({required BuildContext context}) {
     return TextStyle(
-      fontSize: responsiveFont(context, 16 * userScale),
+      fontSize: responsiveFont(context, 16),
       fontWeight: FontWeight.w500,
       fontFamily: Strings.almarai,
+      color: Theme.of(context).textTheme.bodyMedium?.color,
     );
   }
-  static TextStyle style16w400({
-    required BuildContext context,
-    required double userScale,
-  }) {
+
+  static TextStyle style16w400({required BuildContext context}) {
     return TextStyle(
-      fontSize: responsiveFont(context, 16 * userScale),
+      fontSize: responsiveFont(context, 16),
       fontWeight: FontWeight.w400,
       fontFamily: Strings.almarai,
+      color: Theme.of(context).textTheme.bodyMedium?.color,
     );
   }
 
-  static TextStyle style14w700({
-    required BuildContext context,
-    required double userScale,
-  }) {
+  static TextStyle style14w700({required BuildContext context}) {
     return TextStyle(
-      fontSize: responsiveFont(context, 14 * userScale),
+      fontSize: responsiveFont(context, 14),
       fontWeight: FontWeight.w700,
       fontFamily: Strings.almarai,
+      color: Theme.of(context).textTheme.bodyMedium?.color,
     );
   }
 
-  static TextStyle style14w500({
-    required BuildContext context,
-    required double userScale,
-  }) {
+  static TextStyle style14w500({required BuildContext context}) {
     return TextStyle(
-      fontSize: responsiveFont(context, 14 * userScale),
+      fontSize: responsiveFont(context, 14),
       fontWeight: FontWeight.w500,
       fontFamily: Strings.almarai,
+      color: Theme.of(context).textTheme.bodyMedium?.color,
     );
   }
-  static TextStyle style14w400({
-    required BuildContext context,
-    required double userScale,
-  }) {
+
+  static TextStyle style14w400({required BuildContext context}) {
     return TextStyle(
-      fontSize: responsiveFont(context, 14 * userScale),
+      fontSize: responsiveFont(context, 14),
       fontWeight: FontWeight.w400,
       fontFamily: Strings.almarai,
+      color: Theme.of(context).textTheme.bodyMedium?.color,
     );
   }
-  static TextStyle style12w400({
-    required BuildContext context,
-    required double userScale,
-  }) {
+
+  static TextStyle style12w400({required BuildContext context}) {
     return TextStyle(
-      fontSize: responsiveFont(context, 12 * userScale),
+      fontSize: responsiveFont(context, 12),
       fontWeight: FontWeight.w400,
       fontFamily: Strings.almarai,
+      color: Theme.of(context).textTheme.bodyMedium?.color,
     );
   }
 }

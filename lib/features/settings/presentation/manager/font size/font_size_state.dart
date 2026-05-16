@@ -4,6 +4,6 @@ sealed class FontSizeState {}
 
 
 class FontSizeChanged extends FontSizeState {
-  final double scale;
+  final FontSizeLevel scale;
   FontSizeChanged(this.scale);
 }

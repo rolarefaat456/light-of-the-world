@@ -18,7 +18,6 @@ AppBar customAppBar({
       title,
       style: AppTextStyles.style24w700(
         context: context,
-        userScale: 1.0,
       ).copyWith(color: Theme.of(context).textTheme.bodyLarge?.color),
     ),
     actions: [

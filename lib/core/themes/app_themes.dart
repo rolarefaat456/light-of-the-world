@@ -20,7 +20,7 @@ class AppThemes {
       primary: LightModeColor.orange,
       secondary: LightModeColor.navy,
       tertiary: Colors.red,
-      scrim: Colors.green
+      scrim: Colors.green,
     ),
     dividerColor: LightModeColor.orangeAccent,
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
@@ -35,9 +35,8 @@ class AppThemes {
   static final ThemeData darkTheme = ThemeData(
     textTheme: TextTheme(
       bodyMedium: TextStyle(color: DarkModeColor.white),
-      bodyLarge: TextStyle(color: const Color.fromARGB(255, 22, 17, 8)),
+      bodyLarge: TextStyle(color: DarkModeColor.lightOrange),
       bodySmall: TextStyle(color: DarkModeColor.grayOrange),
-      displayLarge: TextStyle(color: DarkModeColor.black),
       displayMedium: TextStyle(color: DarkModeColor.grayOrange),
     ),
     brightness: Brightness.dark,
@@ -48,7 +47,7 @@ class AppThemes {
       primary: DarkModeColor.orange,
       secondary: DarkModeColor.lightOrange,
       tertiary: Colors.red,
-      scrim: Colors.green
+      scrim: Colors.green,
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       backgroundColor: DarkModeColor.black,

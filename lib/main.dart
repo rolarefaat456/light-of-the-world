@@ -9,6 +9,7 @@ import 'package:ligthoftheworld/light_of_the_world.dart';
 import 'features/main/presentation/manager/page/page_cubit.dart';
 import 'features/settings/presentation/manager/darkmode/darkmode_cubit.dart';
 import 'features/settings/presentation/manager/font size/font_size_cubit.dart';
+import 'features/settings/presentation/manager/language/language_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,6 +35,7 @@ void main() async {
         BlocProvider(create: (_) => PageCubit()),
         BlocProvider(create: (_) => FontSizeCubit()),
         BlocProvider(create: (_) => DarkmodeCubit()),
+        BlocProvider(create: (_) => LanguageCubit()),
       ],
       child: const LightOfTheWorld(),
     ),

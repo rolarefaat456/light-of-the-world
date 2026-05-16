@@ -21,7 +21,6 @@ class LengedItem extends StatelessWidget {
           text,
           style: AppTextStyles.style14w400(
             context: context,
-            userScale: 1,
           ).copyWith(color: color),
         ),
       ],

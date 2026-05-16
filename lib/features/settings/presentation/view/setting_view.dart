@@ -1,10 +1,13 @@
-import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ligthoftheworld/core/utils/app_text_styles.dart';
 import 'package:ligthoftheworld/features/settings/presentation/manager/darkmode/darkmode_cubit.dart';
+import 'package:ligthoftheworld/features/settings/presentation/manager/language/language_cubit.dart';
 import 'package:ligthoftheworld/shared/functions/custom_app_bar.dart';
+import '../../data/app_mode_model.dart';
+import '../../data/font_size_level.dart';
+import '../../data/language_model.dart';
 import '../manager/font size/font_size_cubit.dart';
+import 'widgets/switch_row.dart';
 
 class SettingView extends StatelessWidget {
   const SettingView({super.key});
@@ -12,9 +15,6 @@ class SettingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final scale = context.watch<FontSizeCubit>().state is FontSizeChanged
-        ? (context.watch<FontSizeCubit>().state as FontSizeChanged).scale
-        : 1.0;
     return Scaffold(
       appBar: customAppBar(
         context: context,
@@ -26,26 +26,47 @@ class SettingView extends StatelessWidget {
         child: Column(
           spacing: 16,
           children: [
-            BlocBuilder<DarkmodeCubit, DarkmodeState>(
-              builder: (context, state) {
-                switch (state) {
-                  case DarkModeToggle():
-                    return AnimatedToggleSwitch.dual(
-                      current: state.isDarkMode,
-                      first: false,
-                      second: true,
-                      onChanged: (value) {
-                        context.read<DarkmodeCubit>().toggleDarkMode(value);
-                      },
-                      textBuilder: (value) => Text(
-                        value ? 'الوضع النهاري' : 'الوضع الليلي',
-                        style: AppTextStyles.style14w700(
-                          context: context,
-                          userScale: scale,
-                        ),
-                      ),
+            BlocBuilder<DarkmodeCubit, AppMode>(
+              builder: (context, isDarkMode) {
+                return SwitchRow(
+                  text: 'وضع الضوء',
+                  firstText: 'الوضع النهاري',
+                  secondText: 'الوضع الليلي',
+                  current: isDarkMode == AppMode.dark,
+                  onChange: (value) {
+                    context.read<DarkmodeCubit>().setMode(
+                      value ? AppMode.dark : AppMode.light,
                     );
-                }
+                  },
+                );
+              },
+            ),
+            BlocBuilder<LanguageCubit, AppLanguage>(
+              builder: (context, state) {
+                return SwitchRow(
+                  onChange: (value) {
+                    context.read<LanguageCubit>().toggle(
+                      value ? AppLanguage.arabic : AppLanguage.english,
+                    );
+                  },
+                  text: 'اللغة',
+                  firstText: 'العربية',
+                  secondText: 'الإنجليزية',
+                  current: state == AppLanguage.arabic,
+                );
+              },
+            ),
+            BlocBuilder<FontSizeCubit, FontSizeLevel>(
+              builder: (context, level) {
+                return Slider(
+                  min: FontSizeLevel.verySmall.scale,
+                  max: FontSizeLevel.veryLarge.scale,
+                  divisions: 4,
+                  value: level.scale,
+                  onChanged: (value) {
+                    context.read<FontSizeCubit>().setFromSlider(value);
+                  },
+                );
               },
             ),
           ],
